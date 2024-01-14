@@ -28,7 +28,7 @@ function createMainSection() {
 
   const gallowsImg = document.createElement("img");
   gallowsImg.className = "main__image";
-  gallowsImg.src = "src/img/gallows.png";
+  gallowsImg.src = "src/assets/img/gallows.png";
   gallowsImg.alt = "Gallows image";
 
   const question = document.createElement("p");
