@@ -57,13 +57,14 @@ h2 {
 }
 
 .underscores {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(2rem, 0.5fr));
+  gap: 2rem;
+  justify-content: space-evenly;
 }
 
 .underscore {
   height: 0.5rem;
-  width: 10rem;
   background-color: #3b2114;
 }
 

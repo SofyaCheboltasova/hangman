@@ -49,14 +49,10 @@ async function generateQuestion() {
   await fetch("src/assets/quest&ans/qa.json")
     .then((response) => response.json())
     .then((data) => {
-      questionsArray = data;
-      return getRandomQuestion(questionsArray);
+      questionsArray = getRandomQuestion(data);
     })
     .catch((error) => {
       throw new Error(error.message);
-    })
-    .then((randomQuestion) => {
-      questionsArray = randomQuestion;
     });
   return questionsArray;
 }
@@ -80,43 +76,40 @@ function createHeader() {
 async function createMainSection() {
   const main = document.createElement("main");
   const content = document.createElement("section");
-
-  main.className = "main";
-  content.className = "content";
-
   const gallowsImg = document.createElement("img");
-  gallowsImg.className = "main__image";
-  gallowsImg.src = "src/assets/img/gallows.png";
-  gallowsImg.alt = "Gallows image";
-
-  // eslint-disable-next-line no-unused-vars
-  const quest = generateQuestion();
-  const question = document.createElement("p");
-  // question.innerText = quest;
-
+  const question = document.createElement("h2");
   const underscores = document.createElement("div");
-  const mistakes = document.createElement("p");
+  const attempts = document.createElement("h2");
+
   const keyboard = createKeyboard();
+  const qa = await generateQuestion();
 
-  underscores.className = "underscores";
-
-  for (let i = 0; i < 4; i += 1) {
+  for (let i = 0; i < qa.answer.length; i += 1) {
     const underscore = document.createElement("div");
     underscore.className = "underscore";
     underscores.appendChild(underscore);
   }
 
-  content.append(question, underscores, mistakes, keyboard);
+  main.className = "main";
+  content.className = "content";
+  gallowsImg.className = "main__image";
+  gallowsImg.src = "src/assets/img/gallows.png";
+  gallowsImg.alt = "Gallows image";
+  question.textContent = qa.question;
+  attempts.textContent = `5 attempts left`;
+  underscores.className = "underscores";
+
+  content.append(question, underscores, attempts, keyboard);
   main.append(gallowsImg, content);
 
   return main;
 }
 
-function createHomePage() {
+async function createHomePage() {
   const { body } = document;
 
   const header = createHeader();
-  const main = createMainSection();
+  const main = await createMainSection();
 
   body.append(header, main);
 }
