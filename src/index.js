@@ -3,6 +3,37 @@ function createBackground() {
   body.style.backgroundColor = "white";
 }
 
+function createKeyboardSection(startNumber, keystInSection) {
+  const alphabet = "qwertyuiopasdfghjklzxcvbnm␡";
+  const section = document.createElement("div");
+  section.className = "keyboard-line";
+
+  const endNumber = startNumber + keystInSection;
+
+  for (let i = startNumber; i < endNumber; i += 1) {
+    const div = document.createElement("div");
+    div.className = "keyboard__key";
+    div.textContent = alphabet[i];
+    section.appendChild(div);
+  }
+  return section;
+}
+
+function createKeyboard() {
+  const keyboard = document.createElement("div");
+  keyboard.className = "keyboard";
+  const keysInSection = [10, 9, 8];
+  let startNumber = 0;
+
+  for (let i = 0; i < keysInSection.length; i += 1) {
+    const line = createKeyboardSection(startNumber, keysInSection[i]);
+    startNumber += keysInSection[i];
+    keyboard.appendChild(line);
+  }
+
+  return keyboard;
+}
+
 function createHeader() {
   const header = document.createElement("header");
   header.className = "header";
@@ -34,7 +65,7 @@ function createMainSection() {
   const question = document.createElement("p");
   const underscores = document.createElement("div");
   const mistakes = document.createElement("p");
-  const keyboard = document.createElement("div");
+  const keyboard = createKeyboard();
 
   underscores.className = "underscores";
 
@@ -50,7 +81,7 @@ function createMainSection() {
   return main;
 }
 
-function createMainPage() {
+function createHomePage() {
   const { body } = document;
 
   const header = createHeader();
@@ -59,5 +90,5 @@ function createMainPage() {
   body.append(header, main);
 }
 
-createMainPage();
+createHomePage();
 createBackground();

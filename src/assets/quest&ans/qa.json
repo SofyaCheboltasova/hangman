@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "answer": "HyperText"
+  },
+  {
+    "question": "Which programming language is primarily used for styling web pages?",
+    "answer": "CSS"
+  },
+  {
+    "question": "What is the main purpose of JavaScript in web development?",
+    "answer": "Interactivity"
+  },
+  {
+    "question": "Which version control system is widely used in frontend development?",
+    "answer": "Git"
+  },
+  {
+    "question": "What is the role of a CDN in web development?",
+    "answer": "Content"
+  },
+  {
+    "question": "What does API stand for?",
+    "answer": "Application"
+  },
+  {
+    "question": "Which popular framework is used for building user interfaces in JavaScript?",
+    "answer": "React"
+  },
+  {
+    "question": "What is the purpose of the 'viewport' meta tag in HTML?",
+    "answer": "Responsive"
+  },
+  {
+    "question": "Which tool is used for bundling and managing dependencies in frontend projects?",
+    "answer": "Webpack"
+  },
+  {
+    "question": "What is the primary function of the 'box-sizing' CSS property?",
+    "answer": "Layout"
+  }
+]
