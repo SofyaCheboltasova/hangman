@@ -34,6 +34,33 @@ function createKeyboard() {
   return keyboard;
 }
 
+/* TODO: запоминать предыдущий вопрос */
+function getRandomQuestion(data) {
+  if (data && data.length > 0) {
+    const idx = Math.floor(Math.random() * data.length);
+    return data[idx];
+  }
+  throw new Error("No questions found in the data.");
+}
+
+async function generateQuestion() {
+  let questionsArray;
+
+  await fetch("src/assets/quest&ans/qa.json")
+    .then((response) => response.json())
+    .then((data) => {
+      questionsArray = data;
+      return getRandomQuestion(questionsArray);
+    })
+    .catch((error) => {
+      throw new Error(error.message);
+    })
+    .then((randomQuestion) => {
+      questionsArray = randomQuestion;
+    });
+  return questionsArray;
+}
+
 function createHeader() {
   const header = document.createElement("header");
   header.className = "header";
@@ -50,7 +77,7 @@ function createHeader() {
   return header;
 }
 
-function createMainSection() {
+async function createMainSection() {
   const main = document.createElement("main");
   const content = document.createElement("section");
 
@@ -62,7 +89,11 @@ function createMainSection() {
   gallowsImg.src = "src/assets/img/gallows.png";
   gallowsImg.alt = "Gallows image";
 
+  // eslint-disable-next-line no-unused-vars
+  const quest = generateQuestion();
   const question = document.createElement("p");
+  // question.innerText = quest;
+
   const underscores = document.createElement("div");
   const mistakes = document.createElement("p");
   const keyboard = createKeyboard();
