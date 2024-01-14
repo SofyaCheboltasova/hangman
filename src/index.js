@@ -1,39 +1,10 @@
+/* eslint-disable import/extensions */
+import keyboard from "./scripts/keyboard.js";
+
 function createBackground() {
   const { body } = document;
   body.style.backgroundColor = "white";
 }
-
-function createKeyboardSection(startNumber, keystInSection) {
-  const alphabet = "qwertyuiopasdfghjklzxcvbnm␡";
-  const section = document.createElement("div");
-  section.className = "keyboard-line";
-
-  const endNumber = startNumber + keystInSection;
-
-  for (let i = startNumber; i < endNumber; i += 1) {
-    const div = document.createElement("div");
-    div.className = "keyboard__key";
-    div.textContent = alphabet[i];
-    section.appendChild(div);
-  }
-  return section;
-}
-
-function createKeyboard() {
-  const keyboard = document.createElement("div");
-  keyboard.className = "keyboard";
-  const keysInSection = [10, 9, 8];
-  let startNumber = 0;
-
-  for (let i = 0; i < keysInSection.length; i += 1) {
-    const line = createKeyboardSection(startNumber, keysInSection[i]);
-    startNumber += keysInSection[i];
-    keyboard.appendChild(line);
-  }
-
-  return keyboard;
-}
-
 /* TODO: запоминать предыдущий вопрос */
 function getRandomQuestion(data) {
   if (data && data.length > 0) {
@@ -81,7 +52,6 @@ async function createMainSection() {
   const underscores = document.createElement("div");
   const attempts = document.createElement("h2");
 
-  const keyboard = createKeyboard();
   const qa = await generateQuestion();
 
   for (let i = 0; i < qa.answer.length; i += 1) {
@@ -114,5 +84,5 @@ async function createHomePage() {
   body.append(header, main);
 }
 
-createHomePage();
 createBackground();
+createHomePage();
