@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import keyboard from "./scripts/keyboard.js";
+import header from "./scripts/header.js";
 
 function createBackground() {
   const { body } = document;
@@ -26,22 +27,6 @@ async function generateQuestion() {
       throw new Error(error.message);
     });
   return questionsArray;
-}
-
-function createHeader() {
-  const header = document.createElement("header");
-  header.className = "header";
-  const nav = document.createElement("nav");
-  const ul = document.createElement("ul");
-  const li = document.createElement("li");
-  const h2 = document.createElement("h2");
-  li.innerText = "Играть заново";
-  h2.innerText = "Помоги программисту не потерять работу";
-
-  header.appendChild(h2);
-  header.appendChild(nav.appendChild(ul.appendChild(li)));
-
-  return header;
 }
 
 async function createMainSection() {
@@ -78,7 +63,6 @@ async function createMainSection() {
 async function createHomePage() {
   const { body } = document;
 
-  const header = createHeader();
   const main = await createMainSection();
 
   body.append(header, main);
