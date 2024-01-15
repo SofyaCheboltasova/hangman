@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import qaPair from "./qaPair.js";
 import drawBody from "./hangman.js";
+import setModalVisible from "./modal.js";
 import { reduceAttempts, areAttemptsEnd } from "./attempts.js";
 
 function getMatchedIndexes(key) {
@@ -18,8 +19,7 @@ function getMatchedIndexes(key) {
 
 function isWordFullfilled() {
   const hiddenLetters = document.querySelectorAll(".symbol__letter_hidden");
-
-  return hiddenLetters === 0;
+  return hiddenLetters.length === 0;
 }
 
 function clickedKeyHandler(key) {
@@ -34,14 +34,14 @@ function clickedKeyHandler(key) {
     }
 
     if (isWordFullfilled()) {
-      // setModalVisible();
+      setModalVisible(true, qaPair.answer);
     }
   } else {
-    drawBody();
     reduceAttempts();
+    drawBody();
 
     if (areAttemptsEnd()) {
-      // setModalVisible();
+      setModalVisible(false, qaPair.answer);
     }
   }
 }
