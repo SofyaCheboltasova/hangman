@@ -22,7 +22,62 @@
   padding: 2rem 4rem;
 
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: 0.5fr 3fr 0.5fr 0.5fr;
   justify-items: center;
   align-items: center;
+  min-height: 44rem;
+}
+
+@media (min-height: 1000px) {
+  .modal-wrapper__modal {
+    height: 80rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .modal-wrapper__modal {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  .modal-wrapper__modal {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.button {
+  border-radius: 5px;
+  border: 1px solid #3b2114;
+  text-align: center;
+  cursor: pointer;
+  height: 50%;
+  width: 50%;
+}
+
+.button:hover {
+  background-color: #736161;
+  color: #f3f3f3;
+}
+
+.button:active {
+  box-shadow: 0px 0px 10px 9px #3b211466 inset;
+}
+
+.modal__winner-img,
+.modal__looser-img {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.modal__winner-img {
+  background-image: url("../assets/img/man/winner.svg");
+}
+
+.modal__looser-img {
+  background-image: url("../assets/img/man/6mistake.svg");
 }

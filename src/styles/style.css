@@ -45,24 +45,6 @@ h2 {
   height: 100%;
 }
 
-.button {
-  border-radius: 5px;
-  border: 1px solid #3b2114;
-  text-align: center;
-  cursor: pointer;
-  height: 100%;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #736161;
-  color: #f3f3f3;
-}
-
-.button:active {
-  box-shadow: 0px 0px 10px 9px #3b211466 inset;
-}
-
 @media screen and (min-width: 360px) and (max-width: 768px) {
   h2 {
     font-size: 2.5vh;

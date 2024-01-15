@@ -1,5 +1,5 @@
 .content {
-  height: 60vh;
+  height: 80vh;
   min-height: 44rem;
   width: 100%;
   background-color: #f3f3f3;
@@ -59,7 +59,7 @@
 
 @media (min-height: 1000px) {
   .content {
-    height: auto;
+    height: 80rem;
   }
 }
 
