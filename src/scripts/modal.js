@@ -4,16 +4,20 @@ import resetGame from "./resetGame.js";
 let modalOpen = false;
 function setModalElements(isWin, answer) {
   const modal = document.querySelector(".modal");
-  const img = modal.querySelector(".hangman");
   const message = modal.querySelector("h2");
   const fullWord = modal.querySelector(".answer");
   fullWord.textContent = answer;
 
+  let imgWrapper = modal.querySelector(".modal__winner-img");
+  if (!imgWrapper) {
+    imgWrapper = modal.querySelector(".modal__looser-img");
+  }
+
   if (isWin) {
-    img.src = "src/assets/img/man/winner.svg";
+    imgWrapper.className = "modal__winner-img";
     message.textContent = "Congratulations! You won!";
   } else {
-    img.src = "src/assets/img/man/6mistake.svg";
+    imgWrapper.className = "modal__looser-img";
     message.textContent = "You lost :( Try again!";
   }
 }
@@ -55,8 +59,6 @@ function createModal(isWin, answer) {
     imgWrapper.classList.add("modal__looser-img");
     message.textContent = "You lost :( Try again!";
   }
-
-  // imgWrapper.append(img);
   modal.append(message, imgWrapper, fullWord, button);
   modalOpen = true;
   modalWrapper.append(overlay, modal);
