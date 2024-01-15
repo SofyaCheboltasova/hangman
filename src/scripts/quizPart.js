@@ -11,7 +11,7 @@ async function getQuizHtml() {
     questionPartHtml.question,
     questionPartHtml.answer,
     attempts,
-    keyboard
+    keyboard,
   );
 
   return content;
