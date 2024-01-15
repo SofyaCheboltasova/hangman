@@ -25,5 +25,12 @@ h2 {
 }
 
 .main__image {
+  background-image: url("../assets/img/gallows.png");
+  background-repeat: no-repeat;
   height: calc(100vh - 12rem);
+  text-align: center;
+}
+
+.hangman {
+  margin-top: 15rem;
 }

@@ -4,12 +4,10 @@ import content from "./scripts/quizPart.js";
 
 async function createMainSection() {
   const main = document.createElement("main");
-  const gallowsImg = document.createElement("img");
+  const gallowsImg = document.createElement("div");
 
   main.className = "main";
   gallowsImg.className = "main__image";
-  gallowsImg.src = "src/assets/img/gallows.png";
-  gallowsImg.alt = "Gallows image";
 
   main.append(gallowsImg, content);
 
