@@ -21,11 +21,3 @@ async function createHomePage() {
 }
 
 createHomePage();
-
-/*
-	TODO:
-	- адаптив
-	- кнопка новая игра
-	- коменты к коду
-	- классы
-*/

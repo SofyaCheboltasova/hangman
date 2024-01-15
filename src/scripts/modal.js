@@ -46,16 +46,13 @@ function createModal(isWin, answer) {
   setButtonListener(button);
   fullWord.textContent = `Answer: ${answer}`;
 
-  // const img = document.createElement("img");
   const imgWrapper = document.createElement("div");
 
   if (isWin) {
     imgWrapper.classList.add("modal__winner-img");
-    // img.src = "src/assets/img/man/winner.svg";
     message.textContent = "Congratulations! You won!";
   } else {
     imgWrapper.classList.add("modal__looser-img");
-    // img.src = "src/assets/img/man/6mistake.svg";
     message.textContent = "You lost :( Try again!";
   }
 
