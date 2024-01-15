@@ -7,7 +7,7 @@ function getRandomQuestion(data) {
   throw new Error("No questions found in the data.");
 }
 
-async function getQApair() {
+export async function getQApair() {
   let qaPair;
 
   await fetch("src/assets/quest&ans/qa.json")
@@ -22,4 +22,4 @@ async function getQApair() {
 }
 
 const qaPair = await getQApair();
-export default qaPair;
+export { qaPair };

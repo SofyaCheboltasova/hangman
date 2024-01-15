@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import qaPair from "./qaPair.js";
+import { qaPair } from "./qaPair.js";
 import drawBody from "./hangman.js";
 import setModalVisible from "./modal.js";
 import { reduceAttempts, areAttemptsEnd } from "./attempts.js";
