@@ -7,7 +7,8 @@
 
 .keyboard-line {
   display: flex;
-  justify-content: space-evenly;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .keyboard__key,
