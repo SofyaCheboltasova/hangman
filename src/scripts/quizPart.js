@@ -13,7 +13,7 @@ async function createQuizPart() {
     questionAndAnswer.question,
     questionAndAnswer.underscores,
     attempts,
-    keyboard
+    keyboard,
   );
 
   return content;

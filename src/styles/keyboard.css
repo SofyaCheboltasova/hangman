@@ -1,0 +1,30 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.keyboard-line {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.keyboard__key {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5px;
+  border: 1px solid #3b2114;
+  text-align: center;
+  font-size: 3.5rem;
+  cursor: pointer;
+}
+
+.keyboard__key:hover {
+  background-color: #736161;
+  color: #f3f3f3;
+}
+
+.keyboard__key:active {
+  box-shadow: 0px 0px 10px 9px #3b211466 inset;
+}

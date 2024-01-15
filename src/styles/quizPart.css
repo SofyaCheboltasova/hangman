@@ -1,0 +1,26 @@
+.content {
+  height: 90%;
+  width: 100%;
+  background-color: #f3f3f3;
+  align-self: center;
+  justify-self: center;
+  border-radius: 10px;
+  box-shadow: 3px 0px 44px 18px #00000040;
+
+  padding: 2rem 4rem;
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 0.5fr 1fr;
+  align-items: center;
+}
+
+.underscores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(2rem, 0.5fr));
+  gap: 2rem;
+  justify-content: space-evenly;
+}
+
+.underscore {
+  height: 0.5rem;
+  background-color: #3b2114;
+}
