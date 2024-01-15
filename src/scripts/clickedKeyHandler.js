@@ -1,16 +1,33 @@
 /* eslint-disable import/extensions */
 import qaPair from "./qaPair.js";
+import { reduceAttempts } from "./setAttempts.js";
 
-function isKeyCorrect(key) {
+function getMatchedIndexes(key) {
   const { answer } = qaPair;
-
   const answerArray = answer.toLowerCase().split("");
-  return answerArray.includes(key);
+
+  let indexes = answerArray.map((answerKey, i) => {
+    if (answerKey === key) return i;
+    return undefined;
+  });
+
+  indexes = indexes.filter((index) => index !== undefined);
+  return indexes;
 }
 
 function clickedKeyHandler(key) {
-  const isCorrect = isKeyCorrect(key);
-  console.log(isCorrect);
+  const matchedIndexes = getMatchedIndexes(key);
+
+  if (matchedIndexes.length) {
+    const hiddenLetters = document.querySelectorAll(".symbol__letter");
+
+    for (let i = 0; i < matchedIndexes.length; i += 1) {
+      const idx = matchedIndexes[i];
+      hiddenLetters[idx].classList.remove("symbol__letter_hidden");
+    }
+  } else {
+    reduceAttempts();
+  }
 }
 
 export default clickedKeyHandler;

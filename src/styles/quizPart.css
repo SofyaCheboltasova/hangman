@@ -13,6 +13,10 @@
   align-items: center;
 }
 
+.attempts {
+  text-align: center;
+}
+
 .answer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(2rem, 0.5fr));
