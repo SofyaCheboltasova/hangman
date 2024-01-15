@@ -16,8 +16,6 @@ async function createMainSection() {
 
 async function createHomePage() {
   const { body } = document;
-
-  body.style.backgroundColor = "white";
   const main = await createMainSection();
 
   body.append(header, main);
@@ -27,8 +25,8 @@ createHomePage();
 
 /*
 	TODO:
-	- Обработка клавиатуры
 	- адаптив
 	- всплывающее окно с победой
 	- начать игру заново
+	- рандомные вопросы без повторений
 */
