@@ -1,5 +1,4 @@
 /* eslint-disable import/extensions */
-import header from "./scripts/header.js";
 import content from "./scripts/quizPart.js";
 
 async function createMainSection() {
@@ -18,7 +17,7 @@ async function createHomePage() {
   const { body } = document;
   const main = await createMainSection();
 
-  body.append(header, main);
+  body.append(main);
 }
 
 createHomePage();
