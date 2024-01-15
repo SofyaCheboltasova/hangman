@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import qaPair from "./qaPair.js";
 import drawBody from "./hangman.js";
-import { reduceAttempts } from "./attempts.js";
+import { reduceAttempts, areAttemptsEnd } from "./attempts.js";
 
 function getMatchedIndexes(key) {
   const { answer } = qaPair;
@@ -16,6 +16,12 @@ function getMatchedIndexes(key) {
   return indexes;
 }
 
+function isWordFullfilled() {
+  const hiddenLetters = document.querySelectorAll(".symbol__letter_hidden");
+
+  return hiddenLetters === 0;
+}
+
 function clickedKeyHandler(key) {
   const matchedIndexes = getMatchedIndexes(key);
 
@@ -26,9 +32,17 @@ function clickedKeyHandler(key) {
       const idx = matchedIndexes[i];
       hiddenLetters[idx].classList.remove("symbol__letter_hidden");
     }
+
+    if (isWordFullfilled()) {
+      // setModalVisible();
+    }
   } else {
-    reduceAttempts();
     drawBody();
+    reduceAttempts();
+
+    if (areAttemptsEnd()) {
+      // setModalVisible();
+    }
   }
 }
 

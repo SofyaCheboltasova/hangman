@@ -5,6 +5,10 @@ function getMistakesCount() {
   return allAttempts - currentAttempts;
 }
 
+function areAttemptsEnd() {
+  return currentAttempts === 0;
+}
+
 function createAttempts() {
   let attempts = document.querySelector("attempts");
   if (!attempts) {
@@ -21,11 +25,7 @@ function reduceAttempts() {
   if (currentAttempts > 0) {
     currentAttempts -= 1;
     attempts.textContent = `${currentAttempts} attempts left`;
-
-    if (currentAttempts === 0) {
-      attempts.textContent = "You lost";
-    }
   }
 }
 
-export { attempts, reduceAttempts, getMistakesCount };
+export { attempts, reduceAttempts, getMistakesCount, areAttemptsEnd };
