@@ -31,3 +31,21 @@
 .keyboard-line__key_pressed {
   box-shadow: 0px 0px 10px 9px #3b211466 inset;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .keyboard-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: unset;
+    justify-content: space-evenly;
+  }
+  .keyboard-line__key,
+  .keyboard-line__key_pressed {
+    width: 4vw;
+    height: 4vw;
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 768px) {
+}
