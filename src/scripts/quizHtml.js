@@ -1,8 +1,8 @@
 /* eslint-disable import/extensions */
 import keyboard from "./keyboard.js";
-import questionPartHtml from "./getQuestionPartHtml.js";
+import questionPartHtml from "./questionPartHtml.js";
 
-async function createQuizPart() {
+async function getQuizHtml() {
   const content = document.createElement("section");
   const attempts = document.createElement("h2");
 
@@ -19,5 +19,5 @@ async function createQuizPart() {
   return content;
 }
 
-const content = await createQuizPart();
-export default content;
+const quizHtml = await getQuizHtml();
+export default quizHtml;

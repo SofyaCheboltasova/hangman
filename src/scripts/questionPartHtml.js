@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-import qaPair from "./getQApair.js";
+import qaPair from "./qaPair.js";
 
 async function getQuestionPartHtml() {
   const question = document.createElement("h2");
