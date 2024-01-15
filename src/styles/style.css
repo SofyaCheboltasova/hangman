@@ -63,5 +63,9 @@ h2 {
   box-shadow: 0px 0px 10px 9px #3b211466 inset;
 }
 
-@media screen and (min-width <= 360px) and (max-width < 768px) {
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
 }
