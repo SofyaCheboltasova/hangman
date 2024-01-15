@@ -34,6 +34,7 @@ function setButtonListener(button) {
 function createModal(isWin, answer) {
   const overlay = document.createElement("div");
   const modal = document.createElement("div");
+  const modalWrapper = document.createElement("div");
   overlay.classList.add("overlay");
   modal.classList.add("modal");
 
@@ -58,7 +59,8 @@ function createModal(isWin, answer) {
 
   modal.append(message, img, fullWord, button);
   modalOpen = true;
-  document.body.append(overlay, modal);
+  modalWrapper.append(overlay, modal);
+  document.body.append(modalWrapper);
 }
 
 function setModalVisible(isWin, answer) {
