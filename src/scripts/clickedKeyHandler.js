@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import qaPair from "./qaPair.js";
-import { reduceAttempts } from "./setAttempts.js";
+import { reduceAttempts } from "./attempts.js";
 
 function getMatchedIndexes(key) {
   const { answer } = qaPair;

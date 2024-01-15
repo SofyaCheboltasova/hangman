@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import header from "./scripts/header.js";
-import content from "./scripts/quizHtml.js";
+import content from "./scripts/quizPart.js";
 
 async function createMainSection() {
   const main = document.createElement("main");

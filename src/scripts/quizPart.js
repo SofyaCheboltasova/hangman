@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import keyboard from "./keyboard.js";
 import questionPartHtml from "./questionPartHtml.js";
-import { attempts } from "./setAttempts.js";
+import { attempts } from "./attempts.js";
 
 async function getQuizHtml() {
   const content = document.createElement("section");
@@ -11,7 +11,7 @@ async function getQuizHtml() {
     questionPartHtml.question,
     questionPartHtml.answer,
     attempts,
-    keyboard
+    keyboard,
   );
 
   return content;
