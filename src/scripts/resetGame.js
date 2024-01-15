@@ -4,13 +4,12 @@
 // hangman убрать
 // убрать классы у клавы
 
-import { getQApair } from "./qaPair.js";
+import { generateQApair } from "./qaPair.js";
+import { updateQuestionPartHtml } from "./questionPartHtml.js";
 
 async function resetGame() {
-  // const content = document.querySelector(".content");
-
-  const newQApair = await getQApair();
-  console.log(newQApair.answer, newQApair.question);
+  const newQApair = await generateQApair();
+  updateQuestionPartHtml(newQApair);
 }
 
 export default resetGame;

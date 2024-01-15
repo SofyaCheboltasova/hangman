@@ -19,7 +19,7 @@ function createKeyboardSection(startNumber, keystInSection) {
 }
 
 function addPhysicalKeyboardListeners() {
-  document.addEventListener("keydown", (event) => {
+  document.addEventListener("keydown", async (event) => {
     const letter = event.code[event.code.length - 1].toLowerCase();
     if (!alphabet.includes(letter) || event.code.slice(0, 3) !== "Key") {
       return;
@@ -32,7 +32,7 @@ function addPhysicalKeyboardListeners() {
     clickedKey.classList.add("keyboard__key_pressed");
     clickedKey.classList.remove("keyboard__key");
 
-    clickedKeyHandler(letter);
+    await clickedKeyHandler(letter);
   });
 }
 
@@ -40,7 +40,7 @@ function addKeyboardListeners(keyboard) {
   const keys = keyboard.querySelectorAll(".keyboard__key");
 
   keys.forEach((key) => {
-    key.addEventListener("click", () => {
+    key.addEventListener("click", async () => {
       if (key.classList.contains("keyboard__key_pressed")) {
         return;
       }
@@ -49,7 +49,7 @@ function addKeyboardListeners(keyboard) {
       clickedKey.classList.remove("keyboard__key");
 
       const letter = key.textContent;
-      clickedKeyHandler(letter);
+      await clickedKeyHandler(letter);
     });
   });
 

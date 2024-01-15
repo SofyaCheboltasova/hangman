@@ -1,9 +1,7 @@
 // eslint-disable-next-line import/extensions
-import { qaPair } from "./qaPair.js";
+import { getQApair } from "./qaPair.js";
 
-async function getQuestionPartHtml() {
-  const question = document.createElement("h2");
-  const answer = document.createElement("div");
+function createAnswerSymbols(qaPair, answerTag) {
   const letters = qaPair.answer.split("");
 
   for (let i = 0; i < qaPair.answer.length; i += 1) {
@@ -17,14 +15,32 @@ async function getQuestionPartHtml() {
     underscore.className = "symbol__underscore";
 
     wrapper.append(letter, underscore);
-    answer.appendChild(wrapper);
+    answerTag.appendChild(wrapper);
   }
+}
+
+function updateQuestionPartHtml(newQApair) {
+  const question = document.querySelector(".question");
+  const answer = document.querySelector(".answer");
+  question.textContent = newQApair.question;
+  answer.replaceChildren();
+
+  createAnswerSymbols(newQApair, answer);
+}
+
+async function getQuestionPartHtml() {
+  const question = document.createElement("h2");
+  const answer = document.createElement("div");
+  const qaPair = await getQApair();
+
+  createAnswerSymbols(qaPair, answer);
 
   question.textContent = qaPair.question;
+  question.className = "question";
   answer.className = "answer";
 
   return { question, answer };
 }
 
 const questionPartHtml = await getQuestionPartHtml();
-export default questionPartHtml;
+export { questionPartHtml, updateQuestionPartHtml };

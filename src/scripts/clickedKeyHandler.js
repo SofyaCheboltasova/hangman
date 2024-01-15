@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions */
-import { qaPair } from "./qaPair.js";
+import { getQApair } from "./qaPair.js";
 import drawBody from "./hangman.js";
 import setModalVisible from "./modal.js";
 import { reduceAttempts, areAttemptsEnd } from "./attempts.js";
 
-function getMatchedIndexes(key) {
-  const { answer } = qaPair;
-  const answerArray = answer.toLowerCase().split("");
+async function getMatchedIndexes(key) {
+  const qaPair = await getQApair();
+  const answerArray = qaPair.answer.toLowerCase().split("");
 
   let indexes = answerArray.map((answerKey, i) => {
     if (answerKey === key) return i;
@@ -22,8 +22,9 @@ function isWordFullfilled() {
   return hiddenLetters.length === 0;
 }
 
-function clickedKeyHandler(key) {
-  const matchedIndexes = getMatchedIndexes(key);
+async function clickedKeyHandler(key) {
+  const matchedIndexes = await getMatchedIndexes(key);
+  const qaPair = await getQApair();
 
   if (matchedIndexes.length) {
     const hiddenLetters = document.querySelectorAll(".symbol__letter");

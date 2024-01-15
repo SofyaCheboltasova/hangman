@@ -1,4 +1,6 @@
 /* TODO: запоминать предыдущий вопрос */
+let qaPair = null;
+
 function getRandomQuestion(data) {
   if (data && data.length > 0) {
     const idx = Math.floor(Math.random() * data.length);
@@ -7,13 +9,25 @@ function getRandomQuestion(data) {
   throw new Error("No questions found in the data.");
 }
 
-export async function getQApair() {
-  let qaPair;
+function updateIfEqual(oldPair, newPair, data) {
+  if (!oldPair) {
+    return newPair;
+  }
 
+  let updatedPair = newPair;
+  while (newPair.answer === qaPair.answer) {
+    updatedPair = getRandomQuestion(data);
+  }
+  return updatedPair;
+}
+
+export async function generateQApair() {
+  let newQApair;
   await fetch("src/assets/quest&ans/qa.json")
     .then((response) => response.json())
     .then((data) => {
-      qaPair = getRandomQuestion(data);
+      newQApair = getRandomQuestion(data);
+      qaPair = updateIfEqual(qaPair, newQApair, data);
     })
     .catch((error) => {
       throw new Error(error.message);
@@ -21,5 +35,8 @@ export async function getQApair() {
   return qaPair;
 }
 
-const qaPair = await getQApair();
-export { qaPair };
+qaPair = await generateQApair();
+
+export async function getQApair() {
+  return qaPair;
+}
