@@ -32,6 +32,7 @@ export async function generateQApair() {
     .catch((error) => {
       throw new Error(error.message);
     });
+  console.log("Answer:", qaPair.answer);
   return qaPair;
 }
 
