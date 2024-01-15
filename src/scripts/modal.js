@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import resetGame from "./resetGame.js";
 
+let modalOpen = false;
 function setModalElements(isWin, answer) {
   const modal = document.querySelector(".modal");
   const img = modal.querySelector(".hangman");
@@ -23,6 +24,8 @@ function setButtonListener(button) {
     const overlay = document.querySelector(".overlay");
     document.body.removeChild(modal);
     document.body.removeChild(overlay);
+
+    modalOpen = false;
 
     await resetGame();
   });
@@ -54,6 +57,7 @@ function createModal(isWin, answer) {
   }
 
   modal.append(message, img, fullWord, button);
+  modalOpen = true;
   document.body.append(overlay, modal);
 }
 
@@ -67,4 +71,8 @@ function setModalVisible(isWin, answer) {
   }
 }
 
-export default setModalVisible;
+function isModalOpen() {
+  return modalOpen;
+}
+
+export { setModalVisible, isModalOpen };

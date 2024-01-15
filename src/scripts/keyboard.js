@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import clickedKeyHandler from "./clickedKeyHandler.js";
+import { isModalOpen } from "./modal.js";
 
 const alphabet = "qwertyuiopasdfghjklzxcvbnm";
 
@@ -20,6 +21,10 @@ function createKeyboardSection(startNumber, keystInSection) {
 
 function addPhysicalKeyboardListeners() {
   document.addEventListener("keydown", async (event) => {
+    if (isModalOpen()) {
+      return;
+    }
+
     const letter = event.code[event.code.length - 1].toLowerCase();
     if (!alphabet.includes(letter) || event.code.slice(0, 3) !== "Key") {
       return;

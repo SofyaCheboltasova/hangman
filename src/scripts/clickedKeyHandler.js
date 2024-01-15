@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import { getQApair } from "./qaPair.js";
 import { drawBody } from "./hangman.js";
-import setModalVisible from "./modal.js";
+import { setModalVisible } from "./modal.js";
 import { reduceAttempts, areAttemptsEnd } from "./attempts.js";
 
 async function getMatchedIndexes(key) {
