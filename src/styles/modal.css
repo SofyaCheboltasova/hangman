@@ -1,4 +1,4 @@
-.overlay {
+.modal-wrapper__overlay {
   cursor: pointer;
   position: absolute;
   left: 0;
@@ -8,7 +8,7 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
-.modal {
+.modal-wrapper__modal {
   position: absolute;
   left: 50%;
   top: 50%;

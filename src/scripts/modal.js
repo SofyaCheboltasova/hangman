@@ -20,10 +20,8 @@ function setModalElements(isWin, answer) {
 
 function setButtonListener(button) {
   button.addEventListener("click", async () => {
-    const modal = document.querySelector(".modal");
-    const overlay = document.querySelector(".overlay");
-    document.body.removeChild(modal);
-    document.body.removeChild(overlay);
+    const modalWrapper = document.querySelector(".modal-wrapper");
+    document.body.removeChild(modalWrapper);
 
     modalOpen = false;
 
@@ -35,8 +33,9 @@ function createModal(isWin, answer) {
   const overlay = document.createElement("div");
   const modal = document.createElement("div");
   const modalWrapper = document.createElement("div");
-  overlay.classList.add("overlay");
-  modal.classList.add("modal");
+  modalWrapper.classList.add("modal-wrapper");
+  overlay.classList.add("modal-wrapper__overlay");
+  modal.classList.add("modal-wrapper__modal");
 
   const message = document.createElement("h1");
   const fullWord = document.createElement("h2");
