@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-evenly;
+  row-gap: 1vh;
 }
 
 .keyboard-line {

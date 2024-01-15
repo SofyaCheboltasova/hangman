@@ -1,5 +1,6 @@
 .content {
-  height: 90%;
+  height: 60vh;
+  min-height: 44rem;
   width: 100%;
   background-color: #f3f3f3;
   align-self: center;
@@ -20,7 +21,7 @@
 .answer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(2rem, 0.5fr));
-  gap: 2rem;
+  gap: 2vw;
   justify-content: space-evenly;
 }
 
@@ -39,12 +40,25 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
+  .content {
+    padding: 2vh 3vw;
+  }
+
   .answer {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
   }
-  .symbol__underscore {
-    width: 5rem;
+
+  .symbol__underscore,
+  .symbol__letter {
+    width: 4vw;
+    font-size: 4vw;
+  }
+}
+
+@media (min-height: 1000px) {
+  .content {
+    height: auto;
   }
 }

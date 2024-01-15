@@ -34,6 +34,7 @@ h2 {
   height: calc(100vh - 12rem);
   background-position: center;
   background-size: contain;
+  min-height: 44rem;
 }
 
 .hangman {
