@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import qaPair from "./qaPair.js";
+import drawBody from "./hangman.js";
 import { reduceAttempts } from "./attempts.js";
 
 function getMatchedIndexes(key) {
@@ -27,6 +28,7 @@ function clickedKeyHandler(key) {
     }
   } else {
     reduceAttempts();
+    drawBody();
   }
 }
 
