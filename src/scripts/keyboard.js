@@ -1,13 +1,9 @@
 /* eslint-disable import/extensions */
 import clickedKeyHandler from "./clickedKeyHandler.js";
 
-function createKeyboardSection(startNumber, keystInSection) {
-  const alphabet = "qwertyuiopasdfghjklzxcvbnm";
-  const letterCodes = [
-    81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 65, 83, 68, 70, 71, 72, 74, 75, 76,
-    90, 88, 67, 86, 66, 78, 77,
-  ];
+const alphabet = "qwertyuiopasdfghjklzxcvbnm";
 
+function createKeyboardSection(startNumber, keystInSection) {
   const section = document.createElement("div");
   const endNumber = startNumber + keystInSection;
   section.className = "keyboard-line";
@@ -16,10 +12,28 @@ function createKeyboardSection(startNumber, keystInSection) {
     const div = document.createElement("div");
     div.className = "keyboard__key";
     div.textContent = alphabet[i];
-    div.dataset.code = letterCodes[i];
+    div.setAttribute("id", alphabet[i]);
     section.appendChild(div);
   }
   return section;
+}
+
+function addPhysicalKeyboardListeners() {
+  document.addEventListener("keydown", (event) => {
+    const letter = event.code[event.code.length - 1].toLowerCase();
+    if (!alphabet.includes(letter) || event.code.slice(0, 3) !== "Key") {
+      return;
+    }
+
+    const clickedKey = document.getElementById(letter);
+    if (clickedKey.classList.contains("keyboard__key_pressed")) {
+      return;
+    }
+    clickedKey.classList.add("keyboard__key_pressed");
+    clickedKey.classList.remove("keyboard__key");
+
+    clickedKeyHandler(letter);
+  });
 }
 
 function addKeyboardListeners(keyboard) {
@@ -38,6 +52,8 @@ function addKeyboardListeners(keyboard) {
       clickedKeyHandler(letter);
     });
   });
+
+  addPhysicalKeyboardListeners();
 }
 
 function createKeyboard() {
