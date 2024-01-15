@@ -11,7 +11,7 @@ async function getQuizHtml() {
 
   content.append(
     questionPartHtml.question,
-    questionPartHtml.underscores,
+    questionPartHtml.answer,
     attempts,
     keyboard
   );

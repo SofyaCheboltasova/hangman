@@ -1,3 +1,6 @@
+/* eslint-disable import/extensions */
+import clickedKeyHandler from "./clickedKeyHandler.js";
+
 function createKeyboardSection(startNumber, keystInSection) {
   const alphabet = "qwertyuiopasdfghjklzxcvbnm␡";
   const letterCodes = [
@@ -24,9 +27,14 @@ function addKeyboardListeners(keyboard) {
 
   keys.forEach((key) => {
     key.addEventListener("click", () => {
-      // isCorrectKey(key);
+      if (key.classList.contains("keyboard__key_pressed")) {
+        return;
+      }
+      const clickedKey = key;
+      clickedKey.classList.add("keyboard__key_pressed");
+
       const letter = key.textContent;
-      console.log(`Clicked on key: ${letter}`);
+      clickedKeyHandler(letter);
     });
   });
 }

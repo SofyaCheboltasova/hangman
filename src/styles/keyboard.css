@@ -25,6 +25,7 @@
   color: #f3f3f3;
 }
 
-.keyboard__key:active {
+.keyboard__key:active,
+.keyboard__key_pressed {
   box-shadow: 0px 0px 10px 9px #3b211466 inset;
 }
