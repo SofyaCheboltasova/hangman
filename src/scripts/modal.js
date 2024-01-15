@@ -17,18 +17,18 @@ function setModalElements(isWin, answer) {
 function createModal(isWin, answer) {
   const overlay = document.createElement("div");
   const modal = document.createElement("div");
+  overlay.classList.add("overlay");
   modal.classList.add("modal");
 
-  const message = document.createElement("h2");
+  const message = document.createElement("h1");
   const fullWord = document.createElement("h2");
   const button = document.createElement("button");
 
   button.textContent = "Play again";
-  fullWord.classList.add("answer");
+  button.classList.add("button");
   fullWord.textContent = `Answer: ${answer}`;
 
   const img = document.createElement("img");
-  img.className = "hangman";
 
   if (isWin) {
     img.src = "src/assets/img/man/winner.svg";
@@ -38,7 +38,7 @@ function createModal(isWin, answer) {
     message.textContent = "You lost :( Try again!";
   }
 
-  modal.append(message, fullWord, img, button);
+  modal.append(message, img, fullWord, button);
   document.body.append(overlay, modal);
 }
 

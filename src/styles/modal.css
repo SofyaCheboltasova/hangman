@@ -1,0 +1,28 @@
+.overlay {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 50%;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  box-shadow: 3px 0px 44px 18px #00000040;
+
+  padding: 2rem 4rem;
+
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+}
