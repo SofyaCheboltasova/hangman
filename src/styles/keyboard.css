@@ -10,7 +10,8 @@
   justify-content: space-evenly;
 }
 
-.keyboard__key {
+.keyboard__key,
+.keyboard__key_pressed {
   width: 5rem;
   height: 5rem;
   border-radius: 5px;

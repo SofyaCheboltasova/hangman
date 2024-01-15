@@ -32,6 +32,7 @@ function addKeyboardListeners(keyboard) {
       }
       const clickedKey = key;
       clickedKey.classList.add("keyboard__key_pressed");
+      clickedKey.classList.remove("keyboard__key");
 
       const letter = key.textContent;
       clickedKeyHandler(letter);
