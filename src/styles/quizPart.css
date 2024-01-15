@@ -26,7 +26,7 @@
 }
 
 .symbol__letter_hidden {
-  display: none;
+  visibility: hidden;
 }
 
 .symbol__underscore {
