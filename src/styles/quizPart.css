@@ -62,3 +62,14 @@
     height: auto;
   }
 }
+
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  .content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 2vw;
+    height: 45%;
+    min-height: 30rem;
+  }
+}

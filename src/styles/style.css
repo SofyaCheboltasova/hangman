@@ -64,8 +64,21 @@ h2 {
 }
 
 @media screen and (min-width: 360px) and (max-width: 768px) {
+  h2 {
+    font-size: 2.5vh;
+  }
+
   .main {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
+    align-items: baseline;
+  }
+
+  .main__image {
+    height: unset;
+    padding-top: 2vh;
+  }
+
+  .hangman {
+    margin-top: 0;
   }
 }

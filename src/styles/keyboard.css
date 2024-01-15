@@ -36,7 +36,6 @@
 @media screen and (min-width: 768px) and (max-width: 1440px) {
   .keyboard-line {
     display: flex;
-    flex-wrap: wrap;
     gap: unset;
     justify-content: space-evenly;
   }
@@ -49,4 +48,18 @@
 }
 
 @media screen and (min-width: 360px) and (max-width: 768px) {
+  .keyboard {
+    align-items: center;
+  }
+
+  .keyboard-line {
+    gap: 2vw;
+    max-width: 90vw;
+  }
+  .keyboard-line__key,
+  .keyboard-line__key_pressed {
+    width: 10vw;
+    height: 10vw;
+    font-size: 7vw;
+  }
 }
