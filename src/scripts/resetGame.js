@@ -10,11 +10,11 @@ import { resetHangmanImg } from "./hangman.js";
 */
 function resetKeyboard() {
   const keyboard = document.querySelector(".keyboard");
-  const keys = keyboard.querySelectorAll(".keyboard__key_pressed");
+  const keys = keyboard.querySelectorAll(".keyboard-line__key_pressed");
 
   keys.forEach((key) => {
-    key.classList.remove("keyboard__key_pressed");
-    key.classList.add("keyboard__key");
+    key.classList.remove("keyboard-line__key_pressed");
+    key.classList.add("keyboard-line__key");
   });
 }
 

@@ -11,7 +11,7 @@ function createKeyboardSection(startNumber, keystInSection) {
 
   for (let i = startNumber; i < endNumber; i += 1) {
     const div = document.createElement("div");
-    div.className = "keyboard__key";
+    div.className = "keyboard-line__key";
     div.textContent = alphabet[i];
     div.setAttribute("id", alphabet[i]);
     section.appendChild(div);
@@ -31,27 +31,27 @@ function addPhysicalKeyboardListeners() {
     }
 
     const clickedKey = document.getElementById(letter);
-    if (clickedKey.classList.contains("keyboard__key_pressed")) {
+    if (clickedKey.classList.contains("keyboard-line__key_pressed")) {
       return;
     }
-    clickedKey.classList.add("keyboard__key_pressed");
-    clickedKey.classList.remove("keyboard__key");
+    clickedKey.classList.add("keyboard-line__key_pressed");
+    clickedKey.classList.remove("keyboard-line__key");
 
     await clickedKeyHandler(letter);
   });
 }
 
 function addKeyboardListeners(keyboard) {
-  const keys = keyboard.querySelectorAll(".keyboard__key");
+  const keys = keyboard.querySelectorAll(".keyboard-line__key");
 
   keys.forEach((key) => {
     key.addEventListener("click", async () => {
-      if (key.classList.contains("keyboard__key_pressed")) {
+      if (key.classList.contains("keyboard-line__key_pressed")) {
         return;
       }
       const clickedKey = key;
-      clickedKey.classList.add("keyboard__key_pressed");
-      clickedKey.classList.remove("keyboard__key");
+      clickedKey.classList.add("keyboard-line__key_pressed");
+      clickedKey.classList.remove("keyboard-line__key");
 
       const letter = key.textContent;
       await clickedKeyHandler(letter);

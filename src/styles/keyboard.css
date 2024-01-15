@@ -11,8 +11,8 @@
   justify-content: center;
 }
 
-.keyboard__key,
-.keyboard__key_pressed {
+.keyboard-line__key,
+.keyboard-line__key_pressed {
   width: 5rem;
   height: 5rem;
   border-radius: 5px;
@@ -22,12 +22,12 @@
   cursor: pointer;
 }
 
-.keyboard__key:hover {
+.keyboard-line__key:hover {
   background-color: #736161;
   color: #f3f3f3;
 }
 
-.keyboard__key:active,
-.keyboard__key_pressed {
+.keyboard-line__key:active,
+.keyboard-line__key_pressed {
   box-shadow: 0px 0px 10px 9px #3b211466 inset;
 }
