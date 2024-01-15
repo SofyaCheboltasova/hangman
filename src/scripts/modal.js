@@ -18,13 +18,13 @@ function setModalElements(isWin, answer) {
 }
 
 function setButtonListener(button) {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", async () => {
     const modal = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
     document.body.removeChild(modal);
     document.body.removeChild(overlay);
 
-    resetGame();
+    await resetGame();
   });
 }
 

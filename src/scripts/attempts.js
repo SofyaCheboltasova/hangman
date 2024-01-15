@@ -10,13 +10,18 @@ function areAttemptsEnd() {
 }
 
 function createAttempts() {
-  let attempts = document.querySelector("attempts");
+  let attempts = document.querySelector(".attempts");
   if (!attempts) {
     attempts = document.createElement("h2");
     attempts.className = "attempts";
   }
   attempts.textContent = `${currentAttempts} attempts left`;
   return attempts;
+}
+
+function resetAttempts() {
+  currentAttempts = 6;
+  createAttempts();
 }
 
 const attempts = createAttempts();
@@ -28,4 +33,10 @@ function reduceAttempts() {
   }
 }
 
-export { attempts, reduceAttempts, getMistakesCount, areAttemptsEnd };
+export {
+  attempts,
+  reduceAttempts,
+  getMistakesCount,
+  areAttemptsEnd,
+  resetAttempts,
+};
