@@ -28,10 +28,12 @@ async function clickedKeyHandler(key) {
 
   if (matchedIndexes.length) {
     const hiddenLetters = document.querySelectorAll(".symbol__letter");
+    const underscores = document.querySelectorAll(".symbol__underscore");
 
     for (let i = 0; i < matchedIndexes.length; i += 1) {
       const idx = matchedIndexes[i];
       hiddenLetters[idx].classList.remove("symbol__letter_hidden");
+      underscores[idx].style.display = "none";
     }
 
     if (isWordFullfilled()) {
