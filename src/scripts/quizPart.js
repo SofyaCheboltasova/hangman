@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import keyboard from "./keyboard.js";
-import questionAndAnswer from "./questionAndAnswer.js";
+import questionPartHtml from "./getQuestionPartHtml.js";
 
 async function createQuizPart() {
   const content = document.createElement("section");
@@ -10,10 +10,10 @@ async function createQuizPart() {
   attempts.textContent = `5 attempts left`;
 
   content.append(
-    questionAndAnswer.question,
-    questionAndAnswer.underscores,
+    questionPartHtml.question,
+    questionPartHtml.underscores,
     attempts,
-    keyboard,
+    keyboard
   );
 
   return content;
