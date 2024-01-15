@@ -1,13 +1,18 @@
 // eslint-disable-next-line import/extensions
 import { getMistakesCount } from "./attempts.js";
 
-function drawBody() {
-  const previousHangman = document.querySelector(".hangman");
+function resetHangmanImg() {
+  const hangman = document.querySelector(".hangman");
   const img = document.querySelector(".main__image");
 
-  if (previousHangman) {
-    img.removeChild(previousHangman);
+  if (hangman) {
+    img.removeChild(hangman);
   }
+}
+
+function drawBody() {
+  resetHangmanImg();
+  const img = document.querySelector(".main__image");
 
   const mistakesCount = getMistakesCount();
   const hangman = document.createElement("img");
@@ -16,4 +21,4 @@ function drawBody() {
   img.appendChild(hangman);
 }
 
-export default drawBody;
+export { drawBody, resetHangmanImg };
