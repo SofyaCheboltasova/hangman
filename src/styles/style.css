@@ -32,7 +32,8 @@ h2 {
   background-image: url("../assets/img/gallows.png");
   background-repeat: no-repeat;
   height: calc(100vh - 12rem);
-  text-align: center;
+  background-position: center;
+  background-size: contain;
 }
 
 .hangman {
