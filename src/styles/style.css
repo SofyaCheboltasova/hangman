@@ -55,11 +55,13 @@ h2 {
   }
 
   .main__image {
-    height: unset;
+    height: 100%;
     padding-top: 2vh;
+    background-position: top;
   }
 
   .hangman {
-    margin-top: 0;
+    /* margin-top: 0; */
+    height: unset;
   }
 }
