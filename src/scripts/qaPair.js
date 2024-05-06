@@ -23,7 +23,7 @@ function updateIfEqual(oldPair, newPair, data) {
 
 export async function generateQApair() {
   let newQApair;
-  await fetch("src/assets/quest&ans/qa.json")
+  await fetch("./assets/quest&ans/qa.json")
     .then((response) => response.json())
     .then((data) => {
       newQApair = getRandomQuestion(data);
@@ -32,7 +32,6 @@ export async function generateQApair() {
     .catch((error) => {
       throw new Error(error.message);
     });
-  console.log("Answer:", qaPair.answer);
   return qaPair;
 }
 

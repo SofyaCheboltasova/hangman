@@ -17,7 +17,7 @@ function drawBody() {
   const mistakesCount = getMistakesCount();
   const hangman = document.createElement("img");
   hangman.className = "hangman";
-  hangman.src = `src/assets/img/man/${mistakesCount}mistake.svg`;
+  hangman.src = `./assets/img/man/${mistakesCount}mistake.svg`;
   img.appendChild(hangman);
 }
 

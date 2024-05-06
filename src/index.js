@@ -1,4 +1,5 @@
 /* eslint-disable import/extensions */
+import "./styles/main.scss";
 import content from "./scripts/quizPart.js";
 
 async function createMainSection() {
